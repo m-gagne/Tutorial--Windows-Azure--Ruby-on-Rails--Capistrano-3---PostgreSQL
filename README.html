@@ -1,0 +1,1097 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body
+{
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+
+    background-color: white;
+    border-radius: 3px;
+    border: 3px solid #EEE;
+    box-shadow: inset 0 0 0 1px #CECECE;
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
+    width: 912px;
+    padding: 30px;
+    margin: 2em auto;
+
+    color:#333333;
+}
+
+
+.body-classic{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:16px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+body>:first-child
+{
+  margin-top:0!important;
+}
+
+body>:last-child
+{
+  margin-bottom:0!important;
+}
+
+blockquote,dl,ol,p,pre,table,ul {
+  border: 0;
+  margin: 15px 0;
+  padding: 0;
+}
+
+body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+body a:hover {
+  text-decoration: underline;
+}
+
+body a.absent
+{
+  color:#c00;
+}
+
+body a.anchor
+{
+  display:block;
+  padding-left:30px;
+  margin-left:-30px;
+  cursor:pointer;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0
+}
+
+/*h4,h5,h6{ font-weight: bold; }*/
+
+.octicon{
+  font:normal normal 16px sans-serif;
+  width: 1em;
+  height: 1em;
+  line-height:1;
+  display:inline-block;
+  text-decoration:none;
+  -webkit-font-smoothing:antialiased
+}
+
+.octicon-link {
+  background: url("data:image/svg+xml;utf8,<?xml version='1.0' standalone='no'?> <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'> <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 832'> <metadata>Copyright (C) 2013 by GitHub</metadata> <!-- scale(0.01565557729941) --> <path transform='' d='M768 64h-192s-254 0-256 256c0 22 3 43 8 64h137c-11-19-18-41-18-64 0-128 128-128 128-128h192s128 0 128 128-128 128-128 128 0 64-64 128h64s256 0 256-256-256-256-256-256z m-72 192h-137c11 19 18 41 18 64 0 128-128 128-128 128h-192s-128 0-128-128 128-128 128-128-4-65 66-128h-66s-256 0-256 256 256 256 256 256h192s256 0 256-256c0-22-4-44-8-64z'/> </svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.octicon-link:before{
+  content:'\a0';
+}
+
+body h1,body h2,body h3,body h4,body h5,body h6{
+  margin:1em 0 15px;
+  padding:0;
+  font-weight:bold;
+  line-height:1.7;
+  cursor:text;
+  position:relative
+}
+
+body h1 .octicon-link,body h2 .octicon-link,body h3 .octicon-link,body h4 .octicon-link,body h5 .octicon-link,body h6 .octicon-link{
+  display:none;
+  color:#000
+}
+
+body h1:hover a.anchor,body h2:hover a.anchor,body h3:hover a.anchor,body h4:hover a.anchor,body h5:hover a.anchor,body h6:hover a.anchor{
+  text-decoration:none;
+  line-height:1;
+  padding-left:0;
+  margin-left:-22px;
+  top:15%
+}
+
+body h1:hover a.anchor .octicon-link,body h2:hover a.anchor .octicon-link,body h3:hover a.anchor .octicon-link,body h4:hover a.anchor .octicon-link,body h5:hover a.anchor .octicon-link,body h6:hover a.anchor .octicon-link{
+  display:inline-block
+}
+
+body h1 tt,body h1 code,body h2 tt,body h2 code,body h3 tt,body h3 code,body h4 tt,body h4 code,body h5 tt,body h5 code,body h6 tt,body h6 code{
+  font-size:inherit
+}
+
+body h1{
+  font-size:2.5em;
+  border-bottom:1px solid #ddd
+}
+
+body h2{
+  font-size:2em;
+  border-bottom:1px solid #eee
+}
+
+body h3{
+  font-size:1.5em
+}
+
+body h4{
+  font-size:1.2em
+}
+
+body h5{
+  font-size:1em
+}
+
+body h6{
+  color:#777;
+  font-size:1em
+}
+
+body p,body blockquote,body ul,body ol,body dl,body table,body pre{
+  margin:15px 0
+}
+
+body h1 tt,body h1 code,body h2 tt,body h2 code,body h3 tt,body h3 code,body h4 tt,body h4 code,body h5 tt,body h5 code,body h6 tt,body h6 code
+{
+  font-size:inherit;
+}
+
+
+body hr
+{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  /*background:transparent url(http://overblown.net/files/markdown/dirty-shade.png) repeat-x 0 0;*/
+  background-color: transparent;
+  background-position: 0;
+  border:0 none;
+  color:#ccc;
+  height:4px;
+  margin:15px 0;
+  padding:0;
+}
+
+body li p.first
+{
+  display:inline-block;
+}
+
+body ul,body ol
+{
+  padding-left:30px;
+}
+
+body ul.no-list,body ol.no-list
+{
+  list-style-type:none;
+  padding:0;
+}
+
+body ul ul,body ul ol,body ol ol,body ol ul
+{
+  margin-bottom:0;
+  margin-top:0;
+}
+
+body dl
+{
+  padding:0;
+}
+
+body dl dt
+{
+  font-size:14px;
+  font-style:italic;
+  font-weight:700;
+  margin-top:15px;
+  padding:0;
+}
+
+body dl dd
+{
+  margin-bottom:15px;
+  padding:0 15px;
+}
+
+body blockquote
+{
+  border-left:4px solid #DDD;
+  color:#777;
+  padding:0 15px;
+}
+
+body blockquote>:first-child
+{
+  margin-top:0;
+}
+
+body blockquote>:last-child
+{
+  margin-bottom:0;
+}
+
+body table
+{
+  display:block;
+  overflow:auto;
+  width:100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 0;
+}
+
+body table th
+{
+  font-weight:700;
+}
+
+body table th,body table td
+{
+  border:1px solid #ddd;
+  padding:6px 13px;
+}
+
+body table tr
+{
+  background-color:#fff;
+  border-top:1px solid #ccc;
+}
+
+body table tr:nth-child(2n)
+{
+  background-color:#f8f8f8;
+}
+
+body img
+{
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  max-width:100%;
+}
+
+body span.frame
+{
+  display:block;
+  overflow:hidden;
+}
+
+body span.frame>span
+{
+  border:1px solid #ddd;
+  display:block;
+  float:left;
+  margin:13px 0 0;
+  overflow:hidden;
+  padding:7px;
+  width:auto;
+}
+
+body span.frame span img
+{
+  display:block;
+  float:left;
+}
+
+body span.frame span span
+{
+  clear:both;
+  color:#333;
+  display:block;
+  padding:5px 0 0;
+}
+
+body span.align-center
+{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+body span.align-center>span
+{
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:center;
+}
+
+body span.align-center span img
+{
+  margin:0 auto;
+  text-align:center;
+}
+
+body span.align-right
+{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+body span.align-right>span
+{
+  display:block;
+  margin:13px 0 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+body span.align-right span img
+{
+  margin:0;
+  text-align:right;
+}
+
+body span.float-left
+{
+  display:block;
+  float:left;
+  margin-right:13px;
+  overflow:hidden;
+}
+
+body span.float-left span
+{
+  margin:13px 0 0;
+}
+
+body span.float-right
+{
+  display:block;
+  float:right;
+  margin-left:13px;
+  overflow:hidden;
+}
+
+body span.float-right>span
+{
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+body code,body tt
+{
+  background-color:#f8f8f8;
+  border:1px solid #ddd;
+  border-radius:3px;
+  margin:0 2px;
+  padding:0 5px;
+}
+
+body code
+{
+  white-space:nowrap;
+}
+
+
+code,pre{
+  font-family:Consolas, "Liberation Mono", Courier, monospace;
+  font-size:12px
+}
+
+body pre>code
+{
+  background:transparent;
+  border:none;
+  margin:0;
+  padding:0;
+  white-space:pre;
+}
+
+body .highlight pre,body pre
+{
+  background-color:#f8f8f8;
+  border:1px solid #ddd;
+  font-size:13px;
+  line-height:19px;
+  overflow:auto;
+  padding:6px 10px;
+  border-radius:3px
+}
+
+body pre code,body pre tt
+{
+  background-color:transparent;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+body .task-list{
+  list-style-type:none;
+  padding-left:10px
+}
+
+.task-list-item{
+  padding-left:20px
+}
+
+.task-list-item label{
+  font-weight:normal
+}
+
+.task-list-item.enabled label{
+  cursor:pointer
+}
+
+.task-list-item+.task-list-item{
+  margin-top:5px
+}
+
+.task-list-item-checkbox{
+  float:left;
+  margin-left:-20px;
+  margin-top:7px
+}
+
+
+.highlight{
+  background:#ffffff
+}
+
+.highlight .c{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .err{
+  color:#a61717;
+  background-color:#e3d2d2
+}
+
+.highlight .k{
+  font-weight:bold
+}
+
+.highlight .o{
+  font-weight:bold
+}
+
+.highlight .cm{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .cp{
+  color:#999999;
+  font-weight:bold
+}
+
+.highlight .c1{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .cs{
+  color:#999999;
+  font-weight:bold;
+  font-style:italic
+}
+
+.highlight .gd{
+  color:#000000;
+  background-color:#ffdddd
+}
+
+.highlight .gd .x{
+  color:#000000;
+  background-color:#ffaaaa
+}
+
+.highlight .ge{
+  font-style:italic
+}
+
+.highlight .gr{
+  color:#aa0000
+}
+
+.highlight .gh{
+  color:#999999
+}
+
+.highlight .gi{
+  color:#000000;
+  background-color:#ddffdd
+}
+
+.highlight .gi .x{
+  color:#000000;
+  background-color:#aaffaa
+}
+
+.highlight .go{
+  color:#888888
+}
+
+.highlight .gp{
+  color:#555555
+}
+
+.highlight .gs{
+  font-weight:bold
+}
+
+.highlight .gu{
+  color:#800080;
+  font-weight:bold
+}
+
+.highlight .gt{
+  color:#aa0000
+}
+
+.highlight .kc{
+  font-weight:bold
+}
+
+.highlight .kd{
+  font-weight:bold
+}
+
+.highlight .kn{
+  font-weight:bold
+}
+
+.highlight .kp{
+  font-weight:bold
+}
+
+.highlight .kr{
+  font-weight:bold
+}
+
+.highlight .kt{
+  color:#445588;
+  font-weight:bold
+}
+
+.highlight .m{
+  color:#009999
+}
+
+.highlight .s{
+  color:#d14
+}
+
+.highlight .n{
+  color:#333333
+}
+
+.highlight .na{
+  color:#008080
+}
+
+.highlight .nb{
+  color:#0086B3
+}
+
+.highlight .nc{
+  color:#445588;
+  font-weight:bold
+}
+
+.highlight .no{
+  color:#008080
+}
+
+.highlight .ni{
+  color:#800080
+}
+
+.highlight .ne{
+  color:#990000;
+  font-weight:bold
+}
+
+.highlight .nf{
+  color:#990000;
+  font-weight:bold
+}
+
+.highlight .nn{
+  color:#555555
+}
+
+.highlight .nt{
+  color:#000080
+}
+
+.highlight .nv{
+  color:#008080
+}
+
+.highlight .ow{
+  font-weight:bold
+}
+
+.highlight .w{
+  color:#bbbbbb
+}
+
+.highlight .mf{
+  color:#009999
+}
+
+.highlight .mh{
+  color:#009999
+}
+
+.highlight .mi{
+  color:#009999
+}
+
+.highlight .mo{
+  color:#009999
+}
+
+.highlight .sb{
+  color:#d14
+}
+
+.highlight .sc{
+  color:#d14
+}
+
+.highlight .sd{
+  color:#d14
+}
+
+.highlight .s2{
+  color:#d14
+}
+
+.highlight .se{
+  color:#d14
+}
+
+.highlight .sh{
+  color:#d14
+}
+
+.highlight .si{
+  color:#d14
+}
+
+.highlight .sx{
+  color:#d14
+}
+
+.highlight .sr{
+  color:#009926
+}
+
+.highlight .s1{
+  color:#d14
+}
+
+.highlight .ss{
+  color:#990073
+}
+
+.highlight .bp{
+  color:#999999
+}
+
+.highlight .vc{
+  color:#008080
+}
+
+.highlight .vg{
+  color:#008080
+}
+
+.highlight .vi{
+  color:#008080
+}
+
+.highlight .il{
+  color:#009999
+}
+
+.highlight .gc{
+  color:#999;
+  background-color:#EAF2F5
+}
+
+.type-csharp .highlight .k{
+  color:#0000FF
+}
+
+.type-csharp .highlight .kt{
+  color:#0000FF
+}
+
+.type-csharp .highlight .nf{
+  color:#000000;
+  font-weight:normal
+}
+
+.type-csharp .highlight .nc{
+  color:#2B91AF
+}
+
+.type-csharp .highlight .nn{
+  color:#000000
+}
+
+.type-csharp .highlight .s{
+  color:#A31515
+}
+
+.type-csharp .highlight .sc{
+  color:#A31515
+}</style><title>README</title></head><body><p>This tutorial will show you how to create and deploy a basic Ruby on Rails app onto your own <a href="http://windowsazure.com">Windows Azure</a> Linux Virtual Machine using <a href="http://capistranorb.com">Capistrano 3</a> to manage the deployment tasks including database migrations and versioning. Be sure to follow closely and don't skip any steps, missing just one can result in lots of frustration (trust me, I know!).</p>
+
+<h2>
+<a name="time" class="anchor" href="#time"><span class="octicon octicon-link"></span></a>Time</h2>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> Approximately 40 - 60 minutes</p>
+
+<h2>
+<a name="assumptions" class="anchor" href="#assumptions"><span class="octicon octicon-link"></span></a>Assumptions</h2>
+
+<ul>
+<li>You have a subscription (<a href="http://www.windowsazure.com/en-us/pricing/free-trial/">or free trial</a>) with <a href="http://windowsazure.com">Windows Azure</a>
+</li>
+<li>You have a <a href="http://github.com">GitHub account</a>
+</li>
+<li>You are using OSX (though any linux distro should be fine)</li>
+<li>You have Ruby &amp; Ruby on Rails installed (options include <a href="http://rubyonrails.org/">rubyonrails.org</a>, <a href="https://github.com/sstephenson/rbenv">rbenv</a>, <a href="http://bitnami.com/stack/ruby">bitnami</a> etc.)</li>
+<li>You are comfortable with <a href="http://en.wikipedia.org/wiki/Terminal_(OS_X)">terminal</a> &amp; <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a>
+</li>
+<li>You know basic commands for <a href="https://wiki.gentoo.org/wiki/Nano/Basics_Guide">nano</a> or <a href="http://www.cs.colostate.edu/helpdocs/vi.html">vi</a>
+</li>
+</ul><h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>This tutorial is based on this Windows Azure article <a href="http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-capistrano/">Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano</a> and <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">Capistrano 3 Tutorial</a> by <a href="http://twitter.com/TalkingQuickly">@TalkingQuickly</a>.</p>
+
+<h3>
+<a name="create-your-ssh-key" class="anchor" href="#create-your-ssh-key"><span class="octicon octicon-link"></span></a>Create your SSH Key</h3>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 1 minute</p>
+
+<p>You <strong>will need to upload a Windows Azure compatible SSH key</strong>. To create one, open <code>Terminal</code> &amp; run the following in a folder where you wish to store your keys. I recommend using the <code>~/.ssh</code> folder. <a href="http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/">Jeff Wilcox</a> has a great post on creating SSH Keys which I've borrowed from.</p>
+
+<p>You'll be prompted for information like country, state or province, organization etc. You can put whatever you want in there, or leave it blank, up to you.</p>
+
+<blockquote>
+<p><strong>Don't</strong> try and copy+paste this entire script in one shot, it won't work. Run each command separately.</p>
+</blockquote>
+
+<h3>
+<a name="create-a-virtual-machine" class="anchor" href="#create-a-virtual-machine"><span class="octicon octicon-link"></span></a>Create a Virtual Machine</h3>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 5 minutes</p>
+
+<p>Virtual Machine, VM, Virtual Private Server, VPS or server, basically it all means a "machine" in the cloud for you to setup.</p>
+
+<p>The Windows Azure team has a <a href="http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/">more detailed article</a> here that I've used, but the basics are:</p>
+
+<ul>
+<li>log into <a href="http://portal.windowsazure.com">portal.windowsazure.com</a>
+</li>
+<li>select New</li>
+<li>select Compute</li>
+<li>select Virtual Machine</li>
+<li>select From Gallery</li>
+</ul><p><a href="https://github-camo.global.ssl.fastly.net/e4053cc5829312f950c07d8fad772f10f1bab515/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6e65772e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/e4053cc5829312f950c07d8fad772f10f1bab515/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6e65772e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/new.png" style="max-width:100%;"></a></p>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/4cec1bcfa29aa1f9f620b49aaeca45b7966db862/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f766d2d6164642d66726f6d2d67616c6c6572792d3632302e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/4cec1bcfa29aa1f9f620b49aaeca45b7966db862/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f766d2d6164642d66726f6d2d67616c6c6572792d3632302e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-add-from-gallery-620.png" style="max-width:100%;"></a></p>
+
+<p>Select your <strong>linux distro</strong> (I'm partial to Ubuntu). Not sure which version? LTS stands for Long Term Support so that's a good choice. Once selected click <strong>Next</strong></p>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/4b421ed2de76ea03d6ef43ecb20d5fba035b8de1/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f766d2d67616c6c6572792d6c696e75782d3632302e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/4b421ed2de76ea03d6ef43ecb20d5fba035b8de1/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f766d2d67616c6c6572792d6c696e75782d3632302e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-gallery-linux-620.png" style="max-width:100%;"></a></p>
+
+<p>Enter a unique <strong>virtual machine name</strong>, choose a <strong>size</strong>, enter your <strong>username</strong> (default is 'azureuser') and upload your SSH .pem file (<code>azure.pem</code>).</p>
+
+<blockquote>
+<p>Don't forget to <strong>upload the public SSH key</strong> (azure.pem)&gt; While in the file upload dialog <strong>to navigate to your .ssh folder</strong> simply start typing <code>~/.ssh</code> and hit enter.</p>
+</blockquote>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/bb2922c6d475b4a9ef9c7236621688b51b2b5391/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6372656174652d766d2d7373682d6b65792d3632302e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/bb2922c6d475b4a9ef9c7236621688b51b2b5391/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6372656174652d766d2d7373682d6b65792d3632302e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png" style="max-width:100%;"></a></p>
+
+<p>You can simply** use the defaults on step 3** and move on to step 4</p>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/c3ffa0bd6dfb8409790ed139132bfb20ef12ee8c/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6372656174652d766d2d737465702d332d3632302e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/c3ffa0bd6dfb8409790ed139132bfb20ef12ee8c/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6372656174652d766d2d737465702d332d3632302e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-step-3-620.png" style="max-width:100%;"></a></p>
+
+<p>In step 4, be sure to <strong>add the HTTP endpoint</strong> so you can access your app. Then click the <code>OK</code> icon in the bottom right to create your server.</p>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/b5d870e9e3f118024976fb3f3e8c625eab4fbf76/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6372656174652d766d2d687474702d656e64706f696e742d3632302e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/b5d870e9e3f118024976fb3f3e8c625eab4fbf76/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f6372656174652d766d2d687474702d656e64706f696e742d3632302e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-http-endpoint-620.png" style="max-width:100%;"></a></p>
+
+<h3>
+<a name="once-your-server-is-ready" class="anchor" href="#once-your-server-is-ready"><span class="octicon octicon-link"></span></a>Once your server is ready</h3>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 5 minutes</p>
+
+<p>It'll take about 4-5 minutes or so to create your server. Once it's ready open <code>Terminal</code> and connect to your server by running</p>
+
+<p>Be sure to replace</p>
+
+<ul>
+<li>
+<code>&lt;azureuser&gt;</code> with your username that you specified during creation (default is azureuser)</li>
+<li>
+<code>&lt;vmname&gt;</code> with the  virtual machine name (or DNS name) provider during creation.</li>
+</ul><blockquote>
+<p>When promoted be sure to agree to add your server to the known hosts.</p>
+</blockquote>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/ee541a7b1588fe622ae524e6146ebdd7ae5b5ea7/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f7373685f746f5f766d2e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/ee541a7b1588fe622ae524e6146ebdd7ae5b5ea7/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f7373685f746f5f766d2e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/ssh_to_vm.png" style="max-width:100%;"></a></p>
+
+<h3>
+<a name="install-git-ruby--nginx" class="anchor" href="#install-git-ruby--nginx"><span class="octicon octicon-link"></span></a>Install Git, Ruby &amp; Nginx</h3>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 12 minutes</p>
+
+<p>Once connected to your server install <a href="http://git-scm.com/">git</a> and clone the following file into <code>~/setup</code> and run the setup script. This script (<a href="https://gist.github.com/m-gagne/9234940">which you can see here</a>)  will</p>
+
+<ul>
+<li>  Install build tools</li>
+<li>  Install Node.js</li>
+<li>  Install Nginx</li>
+<li>  Setup a local (user) deployment of rbenv</li>
+<li>  Install (using <a href="https://github.com/sstephenson/rbenv">rbenv</a>) Ruby 2.0.0-p451</li>
+<li>  Install the Bundler gem</li>
+</ul><h3>
+<a name="install-postgresql" class="anchor" href="#install-postgresql"><span class="octicon octicon-link"></span></a>Install PostgreSQL</h3>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 3 minutes</p>
+
+<p>Time to install a database server, although this tutorial uses <a href="http://www.postgresql.org/">PostgreSQL</a> you could just as easily use <a href="http://www.mysql.com/">MySQL</a> or even <a href="http://www.windowsazure.com/en-us/services/sql-database/">Windows Azure SQL</a>.</p>
+
+<h3>
+<a name="create-a-user--database" class="anchor" href="#create-a-user--database"><span class="octicon octicon-link"></span></a>Create a user &amp; database</h3>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 2 minutes</p>
+
+<p>You'll need to edit PostgreSQL config to change from <a href="http://www.postgresql.org/docs/9.1/static/auth-methods.html">Peer to MD5 authentication type to allow for password-based authentication</a>.</p>
+
+<p>The above command opens the config file to line 90, all you need to do is change from peer (user) to md5 (user+pass) for authentication.</p>
+
+<p>to</p>
+
+<p>Now reload PostgreSQL configuration</p>
+
+<p>Time to create our user &amp; database. Don't forget to change</p>
+
+<ul>
+<li>  <code>my_username</code> to your desired username</li>
+<li>  <code>my_database</code> to your desired database name</li>
+</ul><p>Verify it works by connecting to it</p>
+
+<p>To quite simply type <code>\q &lt;enter&gt;</code></p>
+
+<h3>
+<a name="kill-the-default-nginx-website" class="anchor" href="#kill-the-default-nginx-website"><span class="octicon octicon-link"></span></a>Kill the default nginx website</h3>
+
+<p>We are going to let Capistrano create a new nginx configuration for us that points to our app, but first we need to delete the default website.</p>
+
+<h2>
+<a name="setting-up-your-ruby-on-rails-app" class="anchor" href="#setting-up-your-ruby-on-rails-app"><span class="octicon octicon-link"></span></a>Setting up your Ruby on Rails App</h2>
+
+<p>We will now setup your (local) machine &amp; app for deployment.</p>
+
+<h3>
+<a name="capistrano" class="anchor" href="#capistrano"><span class="octicon octicon-link"></span></a>Capistrano</h3>
+
+<p><a href="http://capistranorb.com/">Capistrano</a> is a  remote server automation and deployment tool written in Ruby. We will use it to manage setting up and deploying our app to our server(s).</p>
+
+<h3>
+<a name="sample-app" class="anchor" href="#sample-app"><span class="octicon octicon-link"></span></a>Sample App</h3>
+
+<p>I recommend cloning <a href="https://github.com/m-gagne/ror-azure-demo">this sample app</a> for two reasons. First if you don't yet have a Ruby on Rails app you can simply deploy this one. Second, it will make it easier to copy configuration files into your own application once you know how it works. GitHub repo: <a href="https://github.com/m-gagne/ror-azure-demo">https://github.com/m-gagne/ror-azure-demo</a>.</p>
+
+<h3>
+<a name="step-by-step-instructions-on-integrating-capistrano-3" class="anchor" href="#step-by-step-instructions-on-integrating-capistrano-3"><span class="octicon octicon-link"></span></a>Step by step instructions on integrating Capistrano 3</h3>
+
+<p>For detailed step by step instructions please reference this post <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">Capistrano 3 Tutorial</a> by <a href="http://twitter.com/TalkingQuickly">@TalkingQuickly</a>.</p>
+
+<h3>
+<a name="starting-with-the-sample-app-recommend-approach" class="anchor" href="#starting-with-the-sample-app-recommend-approach"><span class="octicon octicon-link"></span></a>Starting with the sample app (Recommend approach)</h3>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 4 minutes</p>
+
+<p>Open <code>Terminal</code> on your local machine &amp;  clone the sample into your code directory (for example <code>~/Code</code>)</p>
+
+<h4>
+<a name="databaseyml" class="anchor" href="#databaseyml"><span class="octicon octicon-link"></span></a>database.yml</h4>
+
+<p>The sample app ships with an example database config file <code>database.example.yml</code>. Copy it to <code>database.yml</code> and configure it as needed. The sample uses PostgreSQL but you can use Mysql, SQLlite and more.</p>
+
+<blockquote>
+<p>Don't forget to <code>cd</code> into the app folder <code>cd ror-azure-demo</code></p>
+</blockquote>
+
+<p>You will want to edit the default values in <code>config/database.yml</code> to match your development environment</p>
+
+<pre><code>development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+</code></pre>
+
+<h4>
+<a name="gemfile" class="anchor" href="#gemfile"><span class="octicon octicon-link"></span></a>Gemfile</h4>
+
+<p>Gems needed for Capistrano deployment. These are already included in the sample apps <code>Gemfile</code> an are only included here for reference if you are adapting this to your own app.</p>
+
+<p>Run the following to install any missing gems</p>
+
+<h4>
+<a name="capistrano-files" class="anchor" href="#capistrano-files"><span class="octicon octicon-link"></span></a>Capistrano Files</h4>
+
+<p>The following is the folders &amp; files created by Capistrano if you were to simply run <code>cap install</code>. The sample app is already setup and this is not required.</p>
+
+<pre>
+├── Capfile
+├── config
+│   ├── deploy
+│   │   ├── production.rb
+│   │   └── staging.rb
+│   └── deploy.rb
+└── lib
+    └── capistrano
+            └── tasks
+</pre>
+
+<blockquote>
+<p>The sample app also includes a number of configuration files to instruct Capistrano to setup nginx, unicorn and more. To better understand how that works see the files in <code>config/deploy/shared</code> and read this <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">tutorial</a>.</p>
+</blockquote>
+
+<h4>
+<a name="configdeployrb" class="anchor" href="#configdeployrb"><span class="octicon octicon-link"></span></a>config/deploy.rb</h4>
+
+<p>This is the basis for your deployment configuration in Capistrano. The settings to change in this file are:</p>
+
+<ul>
+<li>
+<code>:application</code>
+
+<ul>
+<li>Set this to a name for your application</li>
+<li>It will be used in the deployment for things like the deployment folder</li>
+</ul>
+</li>
+<li>
+<code>:deploy_user</code>
+
+<ul>
+<li>Set this to the username you selected when you created your server</li>
+<li>The default when setting up a server on Windows Azure is <code>azureuser</code>
+</li>
+</ul>
+</li>
+<li>
+<code>:repo_url</code>
+
+<ul>
+<li>Set this to the URL for your applications GitHub repository</li>
+</ul>
+</li>
+</ul><h4>
+<a name="configdeployproductionrb" class="anchor" href="#configdeployproductionrb"><span class="octicon octicon-link"></span></a>config/deploy/production.rb</h4>
+
+<p>Capistrano allows you to create multiple stages (dev, test, production for example). In this tutorial we'll focus on production.</p>
+
+<p>The idea is the <code>config/deploy.rb</code> we configured above contains the common configuration (independent of the stage) and the stage specific files contain the rest.</p>
+
+<p>In <code>config/deploy/production.rb</code> the main line to edit is</p>
+
+<p>You will need to change</p>
+
+<ul>
+<li>
+<code>yourserver.cloudapp.net</code>
+
+<ul>
+<li>change this to your your servers DNS address (you should just need to change yourserver to the name of the Virtual Machine you recently created.)</li>
+</ul>
+</li>
+<li>
+<code>azureuser</code>
+
+<ul>
+<li>change this to the username you specific when creating your server. By default on Windows Azure this is <code>azureuser</code>
+</li>
+</ul>
+</li>
+</ul><h3>
+<a name="time-to-deploy" class="anchor" href="#time-to-deploy"><span class="octicon octicon-link"></span></a>Time to deploy</h3>
+
+<h4>
+<a name="setting-up-your-apps-configuration" class="anchor" href="#setting-up-your-apps-configuration"><span class="octicon octicon-link"></span></a>Setting up your apps configuration</h4>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 2 minutes</p>
+
+<p>The first step is tell Capistrano to deploy the basic configuration of your application to the desired stage. For this tutorial we'll deploy to <code>production</code> by running the following command</p>
+
+<p>This will create the following files &amp; folders on your servers home (<code>~/</code>) directory:</p>
+
+<pre><code>~/apps/
+└── ror-azure-demo_production
+  └── shared
+      └── config
+          ├── application.yml
+          ├── database.example.yml
+          ├── log_rotation
+          ├── monit
+          ├── nginx.conf
+          ├── unicorn_init.sh
+          └── unicorn.rb
+</code></pre>
+
+<p>So what did Capistrano do exactly?</p>
+
+<ul>
+<li>  Created an <code>apps</code> folder in your home directory</li>
+<li>  Created a folder for your app using the structure <code>appname_stage</code>
+</li>
+<li>  Created a <code>shared/config</code> folder for configuration that each release/deployment of your app will reference</li>
+</ul><p>You might have noticed that you have a <code>database.example.yml</code> file. That's because it's a bad idea to store your production credentials in your code. So you'll need to create a database.yml file on your production serer. For that you can simply copy the example file and edit as needed.</p>
+
+<p><code>ssh</code> to your server and run the following to create &amp; edit a <code>database.yml</code> file</p>
+
+<p>This will create and open the following <code>database.yml</code> file</p>
+
+<p>You will want to edit it as appropriate, however if you are using PostgreSQL then all you'll need to edit is</p>
+
+<ul>
+<li><code>username:</code></li>
+<li><code>password:</code></li>
+<li><code>database:</code></li>
+</ul><h4>
+<a name="restart-nginx" class="anchor" href="#restart-nginx"><span class="octicon octicon-link"></span></a>Restart Nginx</h4>
+
+<p>While SSH'd into your server you will want to restart Nginx to pick up the new virtualhost that was added when you ran <code>cap production deploy:setup_config</code></p>
+
+<h4>
+<a name="deploy-your-application" class="anchor" href="#deploy-your-application"><span class="octicon octicon-link"></span></a>Deploy your application</h4>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/353595bd619efe0cee645bca5260df8bdc62a4c5/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031342f30332f617a7572652d726f722d7475746f7269616c2f636c6f636b5f32382e706e67" alt="Time" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" style="max-width:100%;"></a> 3 minutes</p>
+
+<p>Time to deploy your application to your server! On your local machine in your app folder run</p>
+
+<p>This will take a few minutes as part of the initial (or 'cold') deployment is to compile and install all the gems.</p>
+
+<h3>
+<a name="fingers-crossed" class="anchor" href="#fingers-crossed"><span class="octicon octicon-link"></span></a>Fingers Crossed</h3>
+
+<p>If all went well you should now be able to point your browser to your server and see your app deployed in production on your very own Windows Azure Linux Virtual Machine!</p>
+
+<p><a href="https://github-camo.global.ssl.fastly.net/3b388bc796dc3bcdf4dbb5f7a8d8d4ada46c4304/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f616368696576656d656e742d756e6c6f636b65642d7261696c732d617a7572652d66697273742d6170702e706e67" target="_blank"><img src="https://github-camo.global.ssl.fastly.net/3b388bc796dc3bcdf4dbb5f7a8d8d4ada46c4304/687474703a2f2f6d6564696166696c65732e773030742e6d732f496d616765732f41727469636c65732f75706c6f6164732f323031332f31312f616368696576656d656e742d756e6c6f636b65642d7261696c732d617a7572652d66697273742d6170702e706e67" alt="" data-canonical-src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/achievement-unlocked-rails-azure-first-app.png" style="max-width:100%;"></a></p>
+
+<h3>
+<a name="learn-more" class="anchor" href="#learn-more"><span class="octicon octicon-link"></span></a>Learn More</h3>
+
+<p>Want to learn more? Hit up <a href="http://windowsazure.com">windowsazure.com</a> for scenarios, documentation and tutorials, also why not check out <a href="http://www.microsoftvirtualacademy.com/product-training/windows-azure">Microsoft Virtual Academy</a> which includes courses for Windows Azure.</p>
+
+<p>Follow me for more on Windows Azure <a href="http://twitter.com/marc_gagne">@marc_gagne</a></p></body></html>
