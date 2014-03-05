@@ -130,14 +130,14 @@ body{font-size:16px;}
 <li>You have a <a href="http://github.com">GitHub account</a></li>
 <li>You are using OSX (though any Linux distro should be fine)</li>
 <li>You have Ruby &amp; Ruby on Rails installed (options include <a href="http://rubyonrails.org/">rubyonrails.org</a>, <a href="https://github.com/sstephenson/rbenv">rbenv</a>, <a href="http://bitnami.com/stack/ruby">bitnami</a> etc.)</li>
-<li>You are comfortable with <a href="http://en.wikipedia.org/wiki/Terminal_(OS_X)">Terminal</a> &amp; <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a></li>
+<li>You are comfortable with <a href="http://en.wikipedia.org/wiki/Terminal_(OS_X)">Terminal</a> &amp; <a href="http://en.wikipedia.org/wiki/Secure_Shell">SSH</a></li>
 <li>You know basic commands for <a href="https://wiki.gentoo.org/wiki/Nano/Basics_Guide">nano</a> or <a href="http://www.cs.colostate.edu/helpdocs/vi.html">vi</a> at least enough to open, edit and save files</li>
 </ul>
 <h2 id="getting-started">Getting Started</h2>
 <p>This tutorial is based on this Windows Azure article <a href="http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-capistrano/">Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano</a> and <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">Capistrano 3 Tutorial</a> by <a href="http://twitter.com/TalkingQuickly">@TalkingQuickly</a>.</p>
 <h3 id="create-your-ssh-key">Create your SSH Key</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 1 minute</p>
-<p>You will need to upload a <strong>Windows Azure compatible SSH key</strong>. To create one, open <code>Terminal</code> &amp; run the following in a folder where you wish to store your keys. I recommend using the <code>~/.ssh</code> folder. <a href="http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/">Jeff Wilcox</a> has a great post on creating SSH Keys which I've borrowed from.</p>
+<p>You will need to upload a <strong>Windows Azure compatible SSH key</strong>. To create one, open <code>Terminal</code> &amp; run the following in a folder where you wish to store your keys. I recommend using the <code>~/.SSH</code> folder. <a href="http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/">Jeff Wilcox</a> has a great post on creating SSH Keys which I've borrowed from.</p>
 <p>You'll be prompted for information like country, state or province, organization etc. You can put whatever you want in there, or leave it blank, up to you.</p>
 <blockquote>
 <p><strong>Don't</strong> try and copy+paste this entire script in one shot, it won't work. Run each command separately.</p>
@@ -165,12 +165,12 @@ body{font-size:16px;}
 <li>Choose a <strong>Size</strong> for your VM (small will do just fine)</li>
 <li>Enter your <strong>User Name</strong> (or leave it set to the default of 'azureuser' for simplicity)</li>
 <li>Upload your <code>azure.pem</code> SSH certificate (be sure to upload the <code>.pem</code> file not the <code>.key</code> file)<ul>
-<li>While in the file upload dialog <strong>to navigate to your .ssh folder</strong> simply start typing <code>~/.ssh</code> and hit ente</li>
+<li>While in the file upload dialog <strong>to navigate to your .SSH folder</strong> simply start typing <code>~/.SSH</code> and hit ente</li>
 </ul>
 </li>
 <li>You can <strong>optionally</strong> set a <strong>password</strong>, however it's good practice to use certificate based authentication for your linux servers</li>
 </ul>
-<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png" /></p>
+<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-SSH-key-620.png" /></p>
 <p><strong>Step 3</strong> Let's just use the defaults here</p>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-step-3-620.png" /></p>
 <p><strong> Step 4</strong> Be sure to <strong>add the HTTP endpoint</strong> so you can access your app.  Endpoints are public ports that are opened on your server so they are accessible via the internet to everyone. For most websites and web apps you'll want to open HTTP (port 80) and HTTPS (port 443). Click the <code>OK</code> icon in the bottom right to create your server.</p>
@@ -186,23 +186,27 @@ body{font-size:16px;}
 <li><code>&lt;vmname&gt;</code> with the  virtual machine name (or DNS name) provider during creation.</li>
 </ul>
 <p>When promoted be sure to agree to add your server to the known hosts.</p>
-<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/ssh_to_vm.png" /></p>
-<h3 id="install-git-ruby-wzxhzdk-23-nginx">Install Git, Ruby &amp; Nginx</h3>
+<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/SSH_to_vm.png" /></p>
+<h3 id="install-git-ruby-wzxhzdk-24-nginx">Install Git, Ruby &amp; Nginx</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 12 minutes</p>
-<p>Once connected to your server install <a href="http://git-scm.com/">git</a> and clone the following file into <code>~/setup</code> and run the setup script. This script (<a href="https://gist.github.com/m-gagne/9234940">which you can see here</a>)  will</p>
+<p>Once connected to your server install <a href="http://git-scm.com/">git</a> and clone the following file into <code>~/setup</code> and run the setup script. This script (<a href="https://gist.github.com/m-gagne/9234940">which you can view here</a>)  will</p>
 <ul>
-<li>Install build tools</li>
-<li>Install Node.js</li>
-<li>Install Nginx</li>
-<li>Setup a local (user) deployment of rbenv</li>
+<li>Update &amp; upgrade installed packages</li>
+<li>Install various build tools</li>
+<li>Install <a href="http://nodejs.org/">Node.js</a></li>
+<li>Install <a href="http://wiki.nginx.org/Main">Nginx</a></li>
+<li>Setup a local (user) deployment of <a href="http://github.com/sstephenson/rbenv">rbenv</a></li>
 <li>Install (using <a href="https://github.com/sstephenson/rbenv">rbenv</a>) Ruby 2.0.0-p451</li>
-<li>Install the Bundler gem</li>
+<li>Install the <a href="http://bundler.io/">Bundler</a> gem</li>
 </ul>
+<blockquote>
+<p>Run these commands one at a time</p>
+</blockquote>
 <script src="https://gist.github.com/m-gagne/2ddfdaf2ca3cc1223035.js"></script>
 
 <h3 id="install-postgresql">Install PostgreSQL</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 3 minutes</p>
-<p>Time to install a database server, although this tutorial uses <a href="http://www.postgresql.org/">PostgreSQL</a> you could just as easily use <a href="http://www.mysql.com/">MySQL</a> or even <a href="http://www.windowsazure.com/en-us/services/sql-database/">Windows Azure SQL</a>.</p>
+<p>Time to install a database server, although this tutorial uses <a href="http://www.postgresql.org/">PostgreSQL</a> you could just as easily use <a href="http://www.mysql.com/">MySQL</a>, <a href="http://www.windowsazure.com/en-us/services/sql-database/">Windows Azure SQL</a> or any database supported by Ruby.</p>
 <script src="https://gist.github.com/m-gagne/9259868.js"></script>
 
 <h3 id="create-a-user-database">Create a user &amp; database</h3>
@@ -211,15 +215,16 @@ body{font-size:16px;}
 <script src="https://gist.github.com/m-gagne/80c1d08ca47448860c8b.js"></script>
 
 <p>The above command opens the config file to line 90, all you need to do is change from peer (user) to md5 (user+pass) for authentication.</p>
+<p>Change this:</p>
 <script src="https://gist.github.com/m-gagne/8dba324a9c45ee1a741c.js"></script>
 
-<p>to</p>
+<p>To this:</p>
 <script src="https://gist.github.com/m-gagne/5b60a831eac45664d11e.js"></script>
 
 <p>Now reload PostgreSQL configuration</p>
 <script src="https://gist.github.com/m-gagne/0f397bf81bb267a2d26c.js"></script>
 
-<p>Time to create our user &amp; database. Don't forget to change</p>
+<p>Time to create a user &amp; database (remember these settings as you'll need to configure your app to use them later!). Don't forget to change</p>
 <ul>
 <li><code>my_username</code> to your desired username</li>
 <li><code>my_database</code> to your desired database name</li>
@@ -230,8 +235,8 @@ body{font-size:16px;}
 <script src="https://gist.github.com/m-gagne/d9bc3968e93fd89a5068.js"></script>
 
 <p>To quite simply type <code>\q &lt;enter&gt;</code></p>
-<h3 id="kill-the-default-nginx-website">Kill the default nginx website</h3>
-<p>We are going to let Capistrano create a new nginx configuration for us that points to our app, but first we need to delete the default website.</p>
+<h3 id="remove-the-default-nginx-website">Remove the default Nginx website</h3>
+<p>If you try connecting to your server (<code>&lt;vmname&gt;.cloudapp.net</code>) you will see the default website included when you installed Nginx. We are going to let Capistrano create a new nginx configuration for us that points to our app, so let's delete that default website.</p>
 <script src="https://gist.github.com/m-gagne/2c02d1ccc5b169673ba0.js"></script>
 
 <h2 id="setting-up-your-ruby-on-rails-app">Setting up your Ruby on Rails App</h2>
@@ -239,22 +244,25 @@ body{font-size:16px;}
 <h3 id="capistrano">Capistrano</h3>
 <p><a href="http://capistranorb.com/">Capistrano</a> is a  remote server automation and deployment tool written in Ruby. We will use it to manage setting up and deploying our app to our server(s).</p>
 <h3 id="sample-app">Sample App</h3>
-<p>I recommend cloning <a href="https://github.com/m-gagne/ror-azure-demo">this sample app</a> for two reasons. First if you don't yet have a Ruby on Rails app you can simply deploy this one. Second, it will make it easier to copy configuration files into your own application once you know how it works. GitHub repo: <a href="https://github.com/m-gagne/ror-azure-demo">https://github.com/m-gagne/ror-azure-demo</a>.</p>
+<p>I recommend cloning <a href="https://github.com/m-gagne/ror-azure-demo">this sample app</a> for a few reasons.</p>
+<ul>
+<li>First if you don't yet have a Ruby on Rails app you can simply deploy this one</li>
+<li>Second, it will make it easier to copy configuration files into your own application once you know how it works</li>
+<li>This app is very simple and so it's easier to trouble shoot if somethig doesn't work</li>
+</ul>
 <h3 id="step-by-step-instructions-on-integrating-capistrano-3">Step by step instructions on integrating Capistrano 3</h3>
-<p>For detailed step by step instructions please reference this post <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">Capistrano 3 Tutorial</a> by <a href="http://twitter.com/TalkingQuickly">@TalkingQuickly</a>.</p>
-<h3 id="starting-with-the-sample-app-recommend-approach">Starting with the sample app (Recommend approach)</h3>
+<p>For detailed step by step instructions, especially good for those wanting to edit an existing app, please reference this post <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">Capistrano 3 Tutorial</a> by <a href="http://twitter.com/TalkingQuickly">@TalkingQuickly</a>.</p>
+<h3 id="starting-with-the-sample-app">Starting with the sample app</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 4 minutes</p>
-<p>Open <code>Terminal</code> on your local machine &amp;  clone the sample into your code directory (for example <code>~/Code</code>)</p>
+<p>Open <code>Terminal</code> on your local machine &amp;  clone the sample app into your coding directory (for example <code>~/Code</code>)</p>
 <script src="https://gist.github.com/m-gagne/f2c49bdb873985e94cfd.js"></script>
 
-<h4 id="database-yml">database.yml</h4>
-<p>The sample app ships with an example database config file <code>database.example.yml</code>. Copy it to <code>database.yml</code> and configure it as needed. The sample uses PostgreSQL but you can use Mysql, SQLlite and more.</p>
-<blockquote>
+<h4 id="create-a-database-yml-configuration-file">Create a database.yml configuration file</h4>
+<p>The sample app ships with an example database config file <code>database.example.yml</code>. Copy it to <code>database.yml</code> and configure it as needed to match your development machine. The sample uses sqlite3, but you can use Mysql, PostgreSQL and others. Why didn't I include a database.yml file? It's good practice to not include any configuration that would contain usernames, passwords or server information which is why I've excluded database.yml in the <code>.gitignore</code> file.</p>
 <p>Don't forget to <code>cd</code> into the app folder <code>cd ror-azure-demo</code></p>
-</blockquote>
 <script src="https://gist.github.com/m-gagne/d43ad4ef89d8eab6d80f.js"></script>
 
-<p>You will want to edit the default values in <code>config/database.yml</code> to match your development environment</p>
+<p>You will want to edit the default values in <code>config/database.yml</code> to match your own development environment</p>
 <pre><code>development:
   adapter: sqlite3
   database: db/development.sqlite3
@@ -262,14 +270,14 @@ body{font-size:16px;}
   timeout: 5000
 </code></pre>
 <h4 id="gemfile">Gemfile</h4>
-<p>Gems needed for Capistrano deployment. These are already included in the sample apps <code>Gemfile</code> an are only included here for reference if you are adapting this to your own app.</p>
+<p>The following are gems needed for Capistrano deployment. These are already included in the sample apps <code>Gemfile</code> and are only included here for reference if you are adapting this to your own app.</p>
 <script src="https://gist.github.com/m-gagne/c449c7e62cd2af374ab0.js"></script>
 
 <p>Run the following to install any missing gems</p>
 <script src="https://gist.github.com/m-gagne/a79c7fb6d6fa49a2ed49.js"></script>
 
 <h4 id="capistrano-files">Capistrano Files</h4>
-<p>The following is the folders &amp; files created by Capistrano if you were to simply run <code>cap install</code>. The sample app is already setup and this is not required.</p>
+<p>The following are folders &amp; files created by Capistrano if you were to run <code>cap install</code>. The sample app is already setup and this is not required.</p>
 <pre>
 ├── Capfile
 ├── config
@@ -282,11 +290,9 @@ body{font-size:16px;}
             └── tasks
 </pre>
 
-<blockquote>
 <p>The sample app also includes a number of configuration files to instruct Capistrano to setup nginx, unicorn and more. To better understand how that works see the files in <code>config/deploy/shared</code> and read this <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">tutorial</a>.</p>
-</blockquote>
-<h4 id="config-deploy-rb">config/deploy.rb</h4>
-<p>This is the basis for your deployment configuration in Capistrano. The settings to change in this file are:</p>
+<h4 id="edit-config-deploy-rb">Edit config/deploy.rb</h4>
+<p>The file <code>config/deploy.rb</code> is the basis for your deployment configuration in Capistrano. The settings to change in this file are:</p>
 <ul>
 <li><code>:application</code><ul>
 <li>Set this to a name for your application</li>
@@ -305,9 +311,9 @@ body{font-size:16px;}
 </ul>
 <script src="https://gist.github.com/m-gagne/2ef3fd15492164e1a0ab.js"></script>
 
-<h4 id="config-deploy-production-rb">config/deploy/production.rb</h4>
-<p>Capistrano allows you to create multiple stages (dev, test, production for example). In this tutorial we'll focus on production.</p>
-<p>The idea is the <code>config/deploy.rb</code> we configured above contains the common configuration (independent of the stage) and the stage specific files contain the rest.</p>
+<h4 id="edit-config-deploy-production-rb">Edit config/deploy/production.rb</h4>
+<p>Capistrano allows you to create multiple stages (dev, test &amp; production for example). In this tutorial we'll focus on production.</p>
+<p>The idea is that <code>config/deploy.rb</code> which we configured above contains the common (stage agnostics) configuration and the stage specific files contain the rest.</p>
 <p>In <code>config/deploy/production.rb</code> the main line to edit is</p>
 <script src="https://gist.github.com/m-gagne/4a1c5b5af160d51b3887.js"></script>
 
@@ -325,7 +331,7 @@ body{font-size:16px;}
 <h3 id="time-to-deploy">Time to deploy</h3>
 <h4 id="setting-up-your-apps-configuration">Setting up your apps configuration</h4>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 2 minutes</p>
-<p>The first step is tell Capistrano to deploy the basic configuration of your application to the desired stage. For this tutorial we'll deploy to <code>production</code> by running the following command</p>
+<p>First tell Capistrano to deploy the base configuration of your application to the desired stage. For this tutorial we'll deploy to <code>production</code> by running the following command</p>
 <script src="https://gist.github.com/m-gagne/4e65ed551c06ead966e5.js"></script>
 
 <p>This will create the following files &amp; folders on your servers home (<code>~/</code>) directory:</p>
@@ -348,7 +354,9 @@ body{font-size:16px;}
 <li>Created a <code>shared/config</code> folder for configuration that each release/deployment of your app will reference</li>
 </ul>
 <p>You might have noticed that you have a <code>database.example.yml</code> file. That's because it's a bad idea to store your production credentials in your code. So you'll need to create a database.yml file on your production serer. For that you can simply copy the example file and edit as needed.</p>
-<p><code>ssh</code> to your server and run the following to create &amp; edit a <code>database.yml</code> file</p>
+<p><code>SSH</code> to your server and run the following to create &amp; edit a <code>database.yml</code> file</p>
+<script src="https://gist.github.com/m-gagne/b0066b6a91db4068e1c0.js"></script>
+
 <script src="https://gist.github.com/m-gagne/9c6fc35c7ff5194ed625.js"></script>
 
 <p>This will create and open the following <code>database.yml</code> file</p>
@@ -356,9 +364,9 @@ body{font-size:16px;}
 
 <p>You will want to edit it as appropriate, however if you are using PostgreSQL then all you'll need to edit is</p>
 <ul>
-<li><code>username:</code></li>
-<li><code>password:</code></li>
-<li><code>database:</code></li>
+<li><code>username</code></li>
+<li><code>password</code></li>
+<li><code>database</code></li>
 </ul>
 <h4 id="restart-nginx">Restart Nginx</h4>
 <p>While SSH'd into your server you will want to restart Nginx to pick up the new virtualhost that was added when you ran <code>cap production deploy:setup_config</code></p>
