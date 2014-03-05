@@ -48,9 +48,9 @@ The Windows Azure team has a [more detailed article](http://www.windowsazure.com
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-add-from-gallery-620.png)
 
-**Step 1** Select your **Linux distro** (I'm partial to Ubuntu). Not sure which version to chose? Ubuntu Server 12.04 LTS is a good option, (LTS stands for Long Term Support). Once selected click the **Next** arrow.
+**Step 1** Select your **Linux distro** (I'm partial to Ubuntu). Not sure which version to chose? Ubuntu Server 12.04 LTS is a good option, (LTS stands for Long Term Support). Once selected click ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows_azure_wizard_next-28.png).
 
-![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-gallery-linux-620.png)
+![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-1-resized.png)
 
 **Step 2** Configure your VM
 
@@ -61,15 +61,15 @@ The Windows Azure team has a [more detailed article](http://www.windowsazure.com
     * While in the file upload dialog **to navigate to your .SSH folder** simply start typing `~/.ssh` and hit ente
 * You can **optionally** set a **password**, however it's good practice to use certificate based authentication for your linux servers
 
-![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png)
+![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-2-resized.png)
 
-**Step 3** Let's just use the defaults here
+**Step 3** Let's just use the defaults here. You can learn more about these options [here](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial/).
 
-![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-step-3-620.png)
+![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-3-resized.png)
 
-** Step 4** Be sure to **add the HTTP endpoint** so you can access your app.  Endpoints are public ports that are opened on your server so they are accessible via the internet to everyone. For most websites and web apps you'll want to open HTTP (port 80) and HTTPS (port 443). Click the `OK` icon in the bottom right to create your server.
+** Step 4** Be sure to **add the HTTP endpoint** so you can access your app.  Endpoints are public ports that are opened on your server so they are accessible via the internet to everyone. For most websites and web apps you'll want to add HTTP (port 80) and HTTPS (port 443). Click ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows_azure_wizard_submit-28.png) to create your server.
 
-![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-http-endpoint-620.png)
+![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-4-resized.png)
 
 ### Once your server is ready
 
@@ -102,9 +102,11 @@ Once connected to your server install [git](http://git-scm.com/) and clone the f
 * Install (using [rbenv](https://github.com/sstephenson/rbenv)) Ruby 2.0.0-p451
 * Install the [Bundler](http://bundler.io/) gem
 
-> Run these commands one at a time
+> **Don't** copy+paste this entire script, it won't work. Run each command separately.
 
 <script src="https://gist.github.com/m-gagne/2ddfdaf2ca3cc1223035.js"></script>
+
+Now would be a good time to grab a coffee or maybe explore the Windows Azure portal a little more because this is going to take 10-12 minutes.
 
 ### Install PostgreSQL
 
@@ -132,6 +134,8 @@ To this:
 
 <script src="https://gist.github.com/m-gagne/5b60a831eac45664d11e.js"></script>
 
+> Hint: `ctrl + x`, `y`, `<enter>` will save and exit nano
+
 Now reload PostgreSQL configuration
 
 <script src="https://gist.github.com/m-gagne/0f397bf81bb267a2d26c.js"></script>
@@ -147,7 +151,7 @@ Verify it works by connecting to it
 
 <script src="https://gist.github.com/m-gagne/d9bc3968e93fd89a5068.js"></script>
 
-To quite simply type `\q <enter>`
+> Hint: to quite simply type `\q <enter>`
 
 ### Remove the default Nginx website
 
@@ -165,7 +169,7 @@ We will now setup your (local) machine & app for deployment.
 
 ### Sample App
 
-I recommend cloning [this sample app](https://github.com/m-gagne/ror-azure-demo) for a few reasons.
+I recommend forking & cloning [this sample app](https://github.com/m-gagne/ror-azure-demo) for a few reasons.
 
 * First if you don't yet have a Ruby on Rails app you can simply deploy this one
 * Second, it will make it easier to copy configuration files into your own application once you know how it works
@@ -178,6 +182,11 @@ For detailed step by step instructions, especially good for those wanting to edi
 ### Starting with the sample app
 
 ![Time][clock] 4 minutes
+
+Fork the demo app
+
+* Open [https://github.com/m-gagne/ror-azure-demo](https://github.com/m-gagne/ror-azure-demo)
+* Click the fork icon ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/github_fork_28.png) to fork this repo to your GitHub account
 
 Open `Terminal` on your local machine &  clone the sample app into your coding directory (for example `~/Code`)
 

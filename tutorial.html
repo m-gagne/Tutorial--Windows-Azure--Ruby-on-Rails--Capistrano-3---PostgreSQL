@@ -140,7 +140,7 @@ body{font-size:16px;}
 <p>You will need to upload a <strong>Windows Azure compatible SSH key</strong>. To create one, open <code>Terminal</code> &amp; run the following in a folder where you wish to store your keys. I recommend using the <code>~/.ssh</code> folder. <a href="http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/">Jeff Wilcox</a> has a great post on creating SSH Keys which I've borrowed from.</p>
 <p>You'll be prompted for information like country, state or province, organization etc. You can put whatever you want in there, or leave it blank, up to you.</p>
 <blockquote>
-<p><strong>Don't</strong> try and copy+paste this entire script in one shot, it won't work. Run each command separately.</p>
+<p><strong>Don't</strong> copy+paste this entire script, it won't work. Run each command separately.</p>
 </blockquote>
 <script src="https://gist.github.com/m-gagne/7afdcff597099e8b5fd1.js"></script>
 
@@ -157,24 +157,24 @@ body{font-size:16px;}
 </ul>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/new.png" /></p>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-add-from-gallery-620.png" /></p>
-<p><strong>Step 1</strong> Select your <strong>Linux distro</strong> (I'm partial to Ubuntu). Not sure which version to chose? Ubuntu Server 12.04 LTS is a good option, (LTS stands for Long Term Support). Once selected click the <strong>Next</strong> arrow.</p>
-<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-gallery-linux-620.png" /></p>
+<p><strong>Step 1</strong> Select your <strong>Linux distro</strong> (I'm partial to Ubuntu). Not sure which version to chose? Ubuntu Server 12.04 LTS is a good option, (LTS stands for Long Term Support). Once selected click <img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows_azure_wizard_next-28.png" />.</p>
+<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-1-resized.png" /></p>
 <p><strong>Step 2</strong> Configure your VM</p>
 <ul>
 <li>Enter a unique <strong>Virtual Machine Name</strong></li>
 <li>Choose a <strong>Size</strong> for your VM (small will do just fine)</li>
 <li>Enter your <strong>User Name</strong> (or leave it set to the default of 'azureuser' for simplicity)</li>
 <li>Upload your <code>azure.pem</code> SSH certificate (be sure to upload the <code>.pem</code> file not the <code>.key</code> file)<ul>
-<li>While in the file upload dialog <strong>to navigate to your .SSH folder</strong> simply start typing <code>~/.SSH</code> and hit ente</li>
+<li>While in the file upload dialog <strong>to navigate to your .SSH folder</strong> simply start typing <code>~/.ssh</code> and hit ente</li>
 </ul>
 </li>
 <li>You can <strong>optionally</strong> set a <strong>password</strong>, however it's good practice to use certificate based authentication for your linux servers</li>
 </ul>
-<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png" /></p>
-<p><strong>Step 3</strong> Let's just use the defaults here</p>
-<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-step-3-620.png" /></p>
-<p><strong> Step 4</strong> Be sure to <strong>add the HTTP endpoint</strong> so you can access your app.  Endpoints are public ports that are opened on your server so they are accessible via the internet to everyone. For most websites and web apps you'll want to open HTTP (port 80) and HTTPS (port 443). Click the <code>OK</code> icon in the bottom right to create your server.</p>
-<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-http-endpoint-620.png" /></p>
+<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-2-resized.png" /></p>
+<p><strong>Step 3</strong> Let's just use the defaults here. You can learn more about these options <a href="http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial/">here</a>.</p>
+<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-3-resized.png" /></p>
+<p><strong> Step 4</strong> Be sure to <strong>add the HTTP endpoint</strong> so you can access your app.  Endpoints are public ports that are opened on your server so they are accessible via the internet to everyone. For most websites and web apps you'll want to add HTTP (port 80) and HTTPS (port 443). Click <img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows_azure_wizard_submit-28.png" /> to create your server.</p>
+<p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/windows-azure-create-vm-step-4-resized.png" /></p>
 <h3 id="once-your-server-is-ready">Once your server is ready</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 5 minutes</p>
 <p>It'll take about 4-5 minutes or so to create your server. Once it's ready open <code>Terminal</code> and connect to your server by running</p>
@@ -200,10 +200,11 @@ body{font-size:16px;}
 <li>Install the <a href="http://bundler.io/">Bundler</a> gem</li>
 </ul>
 <blockquote>
-<p>Run these commands one at a time</p>
+<p><strong>Don't</strong> copy+paste this entire script, it won't work. Run each command separately.</p>
 </blockquote>
 <script src="https://gist.github.com/m-gagne/2ddfdaf2ca3cc1223035.js"></script>
 
+<p>Now would be a good time to grab a coffee or maybe explore the Windows Azure portal a little more because this is going to take 10-12 minutes.</p>
 <h3 id="install-postgresql">Install PostgreSQL</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 3 minutes</p>
 <p>Time to install a database server, although this tutorial uses <a href="http://www.postgresql.org/">PostgreSQL</a> you could just as easily use <a href="http://www.mysql.com/">MySQL</a>, <a href="http://www.windowsazure.com/en-us/services/sql-database/">Windows Azure SQL</a> or any database supported by Ruby.</p>
@@ -221,6 +222,9 @@ body{font-size:16px;}
 <p>To this:</p>
 <script src="https://gist.github.com/m-gagne/5b60a831eac45664d11e.js"></script>
 
+<blockquote>
+<p>Hint: <code>ctrl + x</code>, <code>y</code>, <code>&lt;enter&gt;</code> will save and exit nano</p>
+</blockquote>
 <p>Now reload PostgreSQL configuration</p>
 <script src="https://gist.github.com/m-gagne/0f397bf81bb267a2d26c.js"></script>
 
@@ -234,7 +238,9 @@ body{font-size:16px;}
 <p>Verify it works by connecting to it</p>
 <script src="https://gist.github.com/m-gagne/d9bc3968e93fd89a5068.js"></script>
 
-<p>To quite simply type <code>\q &lt;enter&gt;</code></p>
+<blockquote>
+<p>Hint: to quite simply type <code>\q &lt;enter&gt;</code></p>
+</blockquote>
 <h3 id="remove-the-default-nginx-website">Remove the default Nginx website</h3>
 <p>If you try connecting to your server (<code>&lt;vmname&gt;.cloudapp.net</code>) you will see the default website included when you installed Nginx. We are going to let Capistrano create a new nginx configuration for us that points to our app, so let's delete that default website.</p>
 <script src="https://gist.github.com/m-gagne/2c02d1ccc5b169673ba0.js"></script>
@@ -244,7 +250,7 @@ body{font-size:16px;}
 <h3 id="capistrano">Capistrano</h3>
 <p><a href="http://capistranorb.com/">Capistrano</a> is a  remote server automation and deployment tool written in Ruby. We will use it to manage setting up and deploying our app to our server(s).</p>
 <h3 id="sample-app">Sample App</h3>
-<p>I recommend cloning <a href="https://github.com/m-gagne/ror-azure-demo">this sample app</a> for a few reasons.</p>
+<p>I recommend forking &amp; cloning <a href="https://github.com/m-gagne/ror-azure-demo">this sample app</a> for a few reasons.</p>
 <ul>
 <li>First if you don't yet have a Ruby on Rails app you can simply deploy this one</li>
 <li>Second, it will make it easier to copy configuration files into your own application once you know how it works</li>
@@ -254,6 +260,11 @@ body{font-size:16px;}
 <p>For detailed step by step instructions, especially good for those wanting to edit an existing app, please reference this post <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">Capistrano 3 Tutorial</a> by <a href="http://twitter.com/TalkingQuickly">@TalkingQuickly</a>.</p>
 <h3 id="starting-with-the-sample-app">Starting with the sample app</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 4 minutes</p>
+<p>Fork the demo app</p>
+<ul>
+<li>Open <a href="https://github.com/m-gagne/ror-azure-demo">https://github.com/m-gagne/ror-azure-demo</a></li>
+<li>Click the fork icon <img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/github_fork_28.png" /> to fork this repo to your GitHub account</li>
+</ul>
 <p>Open <code>Terminal</code> on your local machine &amp;  clone the sample app into your coding directory (for example <code>~/Code</code>)</p>
 <script src="https://gist.github.com/m-gagne/f2c49bdb873985e94cfd.js"></script>
 
