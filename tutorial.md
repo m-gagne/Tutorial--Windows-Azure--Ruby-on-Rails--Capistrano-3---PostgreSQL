@@ -22,11 +22,11 @@ This tutorial is based on this Windows Azure article [Deploy a Ruby on Rails Web
 ### Create your SSH Key
 ![Time][clock] 1 minute
 
-You will need to upload a **Windows Azure compatible SSH key**. To create one, open `Terminal` & run the following in a folder where you wish to store your keys. I recommend using the `~/.SSH` folder. [Jeff Wilcox](http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/) has a great post on creating SSH Keys which I've borrowed from.
+You will need to upload a **Windows Azure compatible SSH key**. To create one, open `Terminal` & run the following in a folder where you wish to store your keys. I recommend using the `~/.ssh` folder. [Jeff Wilcox](http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/) has a great post on creating SSH Keys which I've borrowed from.
 
 You'll be prompted for information like country, state or province, organization etc. You can put whatever you want in there, or leave it blank, up to you.
 
-> **Don't** try and copy+paste this entire script in one shot, it won't work. Run each command separately.
+> **Don't** copy+paste this entire script, it won't work. Run each command separately.
 
 <script src="https://gist.github.com/m-gagne/7afdcff597099e8b5fd1.js"></script>
 
@@ -58,7 +58,7 @@ The Windows Azure team has a [more detailed article](http://www.windowsazure.com
 * Choose a **Size** for your VM (small will do just fine)
 * Enter your **User Name** (or leave it set to the default of 'azureuser' for simplicity)
 * Upload your `azure.pem` SSH certificate (be sure to upload the `.pem` file not the `.key` file)
-    * While in the file upload dialog **to navigate to your .SSH folder** simply start typing `~/.SSH` and hit ente
+    * While in the file upload dialog **to navigate to your .SSH folder** simply start typing `~/.ssh` and hit ente
 * You can **optionally** set a **password**, however it's good practice to use certificate based authentication for your linux servers
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png)
