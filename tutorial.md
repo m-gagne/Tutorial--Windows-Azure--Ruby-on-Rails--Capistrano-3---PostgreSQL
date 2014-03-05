@@ -61,7 +61,7 @@ The Windows Azure team has a [more detailed article](http://www.windowsazure.com
     * While in the file upload dialog **to navigate to your .SSH folder** simply start typing `~/.SSH` and hit ente
 * You can **optionally** set a **password**, however it's good practice to use certificate based authentication for your linux servers
 
-![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-SSH-key-620.png)
+![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png)
 
 **Step 3** Let's just use the defaults here
 
@@ -86,7 +86,7 @@ Replacing
 
 When promoted be sure to agree to add your server to the known hosts.
 
-![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/SSH_to_vm.png)
+![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/ssh_to_vm.png)
 
 ### Install Git, Ruby &amp; Nginx
 
@@ -330,9 +330,9 @@ If all went well you should now be able to point your browser to your server and
 
 ### Learn More
 
-Want to learn more? Hit up [windowsazure.com](http://windowsazure.com) for scenarios, documentation and tutorials, also why not check out [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/product-training/windows-azure) which includes courses for Windows Azure.
+Want to learn more? Hit up [windowsazure.com](http://windowsazure.com) for scenarios, documentation and tutorials, also why not check out [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/product-training/windows-azure) which includes free courses for Windows Azure.
 
-Follow me for more on Windows Azure [@marc_gagne](http://twitter.com/marc_gagne)
+Follow me [@marc_gagne](http://twitter.com/marc_gagne) to learn more about Windows Azure, startups  and more.
 
 
 [clock]: http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png
