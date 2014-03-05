@@ -1,6 +1,6 @@
 # Tutorial: Windows Azure, Ruby on Rails, Capistrano 3 & PostgreSQL
 
-This tutorial will show you how to create and deploy a basic Ruby on Rails app onto your own [Windows Azure](http://windowsazure.com) Linux Virtual Machine using [Capistrano 3](http://capistranorb.com) to manage the deployment tasks including database migrations and versioning. Be sure to follow closely and don't skip any steps, missing just one can result in lots of frustration (trust me, I know!).
+This tutorial will show you how to create and deploy a basic Ruby on Rails app onto your own [Windows Azure](http://windowsazure.com) Linux based Virtual Machine using [Capistrano 3](http://capistranorb.com) to manage the deployment tasks including database migrations and versioning. Be sure to follow closely and don't skip any steps, missing just one can result in lots of frustration (trust me, I know!).
 
 ## Time
 
@@ -10,10 +10,10 @@ This tutorial will show you how to create and deploy a basic Ruby on Rails app o
 
 * You have a subscription ([or free trial](http://www.windowsazure.com/en-us/pricing/free-trial/)) with [Windows Azure](http://windowsazure.com)
 * You have a [GitHub account](http://github.com)
-* You are using OSX (though any linux distro should be fine)
+* You are using OSX (though any Linux distro should be fine)
 * You have Ruby &amp; Ruby on Rails installed (options include [rubyonrails.org](http://rubyonrails.org/), [rbenv](https://github.com/sstephenson/rbenv), [bitnami](http://bitnami.com/stack/ruby) etc.)
-* You are comfortable with [terminal](http://en.wikipedia.org/wiki/Terminal_(OS_X)) &amp; [ssh](http://en.wikipedia.org/wiki/Secure_Shell)
-* You know basic commands for [nano](https://wiki.gentoo.org/wiki/Nano/Basics_Guide) or [vi](http://www.cs.colostate.edu/helpdocs/vi.html)
+* You are comfortable with [Terminal](http://en.wikipedia.org/wiki/Terminal_(OS_X)) &amp; [ssh](http://en.wikipedia.org/wiki/Secure_Shell)
+* You know basic commands for [nano](https://wiki.gentoo.org/wiki/Nano/Basics_Guide) or [vi](http://www.cs.colostate.edu/helpdocs/vi.html) at least enough to open, edit and save files
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ This tutorial is based on this Windows Azure article [Deploy a Ruby on Rails Web
 ### Create your SSH Key
 ![Time][clock] 1 minute
 
-You **will need to upload a Windows Azure compatible SSH key**. To create one, open `Terminal` & run the following in a folder where you wish to store your keys. I recommend using the `~/.ssh` folder. [Jeff Wilcox](http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/) has a great post on creating SSH Keys which I've borrowed from.
+You will need to upload a **Windows Azure compatible SSH key**. To create one, open `Terminal` & run the following in a folder where you wish to store your keys. I recommend using the `~/.ssh` folder. [Jeff Wilcox](http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/) has a great post on creating SSH Keys which I've borrowed from.
 
 You'll be prompted for information like country, state or province, organization etc. You can put whatever you want in there, or leave it blank, up to you.
 
@@ -38,31 +38,36 @@ Virtual Machine, VM, Virtual Private Server, VPS or server, basically it all mea
 
 The Windows Azure team has a [more detailed article](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) here that I've used, but the basics are:
 
-* log into [portal.windowsazure.com](http://portal.windowsazure.com)
-* select New
-* select Compute
-* select Virtual Machine
-* select From Gallery
+* log into **[portal.windowsazure.com](http://portal.windowsazure.com)**
+* select **New**
+* select **Compute**
+* select **Virtual Machine**
+* select **From Gallery**
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/new.png)
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-add-from-gallery-620.png)
 
-Select your **linux distro** (I'm partial to Ubuntu). Not sure which version? LTS stands for Long Term Support so that's a good choice. Once selected click **Next**
+**Step 1** Select your **Linux distro** (I'm partial to Ubuntu). Not sure which version to chose? Ubuntu Server 12.04 LTS is a good option, (LTS stands for Long Term Support). Once selected click the **Next** arrow.
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-gallery-linux-620.png)
 
-Enter a unique **virtual machine name**, choose a **size**, enter your **username** (default is 'azureuser') and upload your SSH .pem file (`azure.pem`).
+**Step 2** Configure your VM
 
-> Don't forget to **upload the public SSH key** (azure.pem)> While in the file upload dialog **to navigate to your .ssh folder** simply start typing `~/.ssh` and hit enter.
+* Enter a unique **Virtual Machine Name**
+* Choose a **Size** for your VM (small will do just fine)
+* Enter your **User Name** (or leave it set to the default of 'azureuser' for simplicity)
+* Upload your `azure.pem` SSH certificate (be sure to upload the `.pem` file not the `.key` file)
+    * While in the file upload dialog **to navigate to your .ssh folder** simply start typing `~/.ssh` and hit ente
+* You can **optionally** set a **password**, however it's good practice to use certificate based authentication for your linux servers
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png)
 
-You can simply** use the defaults on step 3** and move on to step 4
+**Step 3** Let's just use the defaults here
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-step-3-620.png)
 
-In step 4, be sure to **add the HTTP endpoint** so you can access your app. Then click the `OK` icon in the bottom right to create your server.
+** Step 4** Be sure to **add the HTTP endpoint** so you can access your app.  Endpoints are public ports that are opened on your server so they are accessible via the internet to everyone. For most websites and web apps you'll want to open HTTP (port 80) and HTTPS (port 443). Click the `OK` icon in the bottom right to create your server.
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-http-endpoint-620.png)
 
@@ -74,11 +79,12 @@ It'll take about 4-5 minutes or so to create your server. Once it's ready open `
 
 <script src="https://gist.github.com/m-gagne/b0066b6a91db4068e1c0.js"></script>
 
-Be sure to replace
+Replacing
+
 * `<azureuser>` with your username that you specified during creation (default is azureuser)
 * `<vmname>` with the  virtual machine name (or DNS name) provider during creation.
 
-> When promoted be sure to agree to add your server to the known hosts.
+When promoted be sure to agree to add your server to the known hosts.
 
 ![](http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/ssh_to_vm.png)
 

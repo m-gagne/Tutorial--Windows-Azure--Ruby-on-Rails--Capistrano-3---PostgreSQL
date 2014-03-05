@@ -121,23 +121,23 @@ body{font-size:16px;}
   h2, h3 { page-break-after: avoid; }
 }
 </style><title>tutorial</title></head><body><h1 id="tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql">Tutorial: Windows Azure, Ruby on Rails, Capistrano 3 &amp; PostgreSQL</h1>
-<p>This tutorial will show you how to create and deploy a basic Ruby on Rails app onto your own <a href="http://windowsazure.com">Windows Azure</a> Linux Virtual Machine using <a href="http://capistranorb.com">Capistrano 3</a> to manage the deployment tasks including database migrations and versioning. Be sure to follow closely and don't skip any steps, missing just one can result in lots of frustration (trust me, I know!).</p>
+<p>This tutorial will show you how to create and deploy a basic Ruby on Rails app onto your own <a href="http://windowsazure.com">Windows Azure</a> Linux based Virtual Machine using <a href="http://capistranorb.com">Capistrano 3</a> to manage the deployment tasks including database migrations and versioning. Be sure to follow closely and don't skip any steps, missing just one can result in lots of frustration (trust me, I know!).</p>
 <h2 id="time">Time</h2>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> Approximately 40 - 60 minutes</p>
 <h2 id="assumptions">Assumptions</h2>
 <ul>
 <li>You have a subscription (<a href="http://www.windowsazure.com/en-us/pricing/free-trial/">or free trial</a>) with <a href="http://windowsazure.com">Windows Azure</a></li>
 <li>You have a <a href="http://github.com">GitHub account</a></li>
-<li>You are using OSX (though any linux distro should be fine)</li>
+<li>You are using OSX (though any Linux distro should be fine)</li>
 <li>You have Ruby &amp; Ruby on Rails installed (options include <a href="http://rubyonrails.org/">rubyonrails.org</a>, <a href="https://github.com/sstephenson/rbenv">rbenv</a>, <a href="http://bitnami.com/stack/ruby">bitnami</a> etc.)</li>
-<li>You are comfortable with <a href="http://en.wikipedia.org/wiki/Terminal_(OS_X)">terminal</a> &amp; <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a></li>
-<li>You know basic commands for <a href="https://wiki.gentoo.org/wiki/Nano/Basics_Guide">nano</a> or <a href="http://www.cs.colostate.edu/helpdocs/vi.html">vi</a></li>
+<li>You are comfortable with <a href="http://en.wikipedia.org/wiki/Terminal_(OS_X)">Terminal</a> &amp; <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a></li>
+<li>You know basic commands for <a href="https://wiki.gentoo.org/wiki/Nano/Basics_Guide">nano</a> or <a href="http://www.cs.colostate.edu/helpdocs/vi.html">vi</a> at least enough to open, edit and save files</li>
 </ul>
 <h2 id="getting-started">Getting Started</h2>
 <p>This tutorial is based on this Windows Azure article <a href="http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-capistrano/">Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano</a> and <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">Capistrano 3 Tutorial</a> by <a href="http://twitter.com/TalkingQuickly">@TalkingQuickly</a>.</p>
 <h3 id="create-your-ssh-key">Create your SSH Key</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 1 minute</p>
-<p>You <strong>will need to upload a Windows Azure compatible SSH key</strong>. To create one, open <code>Terminal</code> &amp; run the following in a folder where you wish to store your keys. I recommend using the <code>~/.ssh</code> folder. <a href="http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/">Jeff Wilcox</a> has a great post on creating SSH Keys which I've borrowed from.</p>
+<p>You will need to upload a <strong>Windows Azure compatible SSH key</strong>. To create one, open <code>Terminal</code> &amp; run the following in a folder where you wish to store your keys. I recommend using the <code>~/.ssh</code> folder. <a href="http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/">Jeff Wilcox</a> has a great post on creating SSH Keys which I've borrowed from.</p>
 <p>You'll be prompted for information like country, state or province, organization etc. You can put whatever you want in there, or leave it blank, up to you.</p>
 <blockquote>
 <p><strong>Don't</strong> try and copy+paste this entire script in one shot, it won't work. Run each command separately.</p>
@@ -149,38 +149,45 @@ body{font-size:16px;}
 <p>Virtual Machine, VM, Virtual Private Server, VPS or server, basically it all means a "machine" in the cloud for you to setup.</p>
 <p>The Windows Azure team has a <a href="http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/">more detailed article</a> here that I've used, but the basics are:</p>
 <ul>
-<li>log into <a href="http://portal.windowsazure.com">portal.windowsazure.com</a></li>
-<li>select New</li>
-<li>select Compute</li>
-<li>select Virtual Machine</li>
-<li>select From Gallery</li>
+<li>log into <strong><a href="http://portal.windowsazure.com">portal.windowsazure.com</a></strong></li>
+<li>select <strong>New</strong></li>
+<li>select <strong>Compute</strong></li>
+<li>select <strong>Virtual Machine</strong></li>
+<li>select <strong>From Gallery</strong></li>
 </ul>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/new.png" /></p>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-add-from-gallery-620.png" /></p>
-<p>Select your <strong>linux distro</strong> (I'm partial to Ubuntu). Not sure which version? LTS stands for Long Term Support so that's a good choice. Once selected click <strong>Next</strong></p>
+<p><strong>Step 1</strong> Select your <strong>Linux distro</strong> (I'm partial to Ubuntu). Not sure which version to chose? Ubuntu Server 12.04 LTS is a good option, (LTS stands for Long Term Support). Once selected click the <strong>Next</strong> arrow.</p>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/vm-gallery-linux-620.png" /></p>
-<p>Enter a unique <strong>virtual machine name</strong>, choose a <strong>size</strong>, enter your <strong>username</strong> (default is 'azureuser') and upload your SSH .pem file (<code>azure.pem</code>).</p>
-<blockquote>
-<p>Don't forget to <strong>upload the public SSH key</strong> (azure.pem)&gt; While in the file upload dialog <strong>to navigate to your .ssh folder</strong> simply start typing <code>~/.ssh</code> and hit enter.</p>
-</blockquote>
+<p><strong>Step 2</strong> Configure your VM</p>
+<ul>
+<li>Enter a unique <strong>Virtual Machine Name</strong></li>
+<li>Choose a <strong>Size</strong> for your VM (small will do just fine)</li>
+<li>Enter your <strong>User Name</strong> (or leave it set to the default of 'azureuser' for simplicity)</li>
+<li>Upload your <code>azure.pem</code> SSH certificate (be sure to upload the <code>.pem</code> file not the <code>.key</code> file)<ul>
+<li>While in the file upload dialog <strong>to navigate to your .ssh folder</strong> simply start typing <code>~/.ssh</code> and hit ente</li>
+</ul>
+</li>
+<li>You can <strong>optionally</strong> set a <strong>password</strong>, however it's good practice to use certificate based authentication for your linux servers</li>
+</ul>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-ssh-key-620.png" /></p>
-<p>You can simply<strong> use the defaults on step 3</strong> and move on to step 4</p>
+<p><strong>Step 3</strong> Let's just use the defaults here</p>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-step-3-620.png" /></p>
-<p>In step 4, be sure to <strong>add the HTTP endpoint</strong> so you can access your app. Then click the <code>OK</code> icon in the bottom right to create your server.</p>
+<p><strong> Step 4</strong> Be sure to <strong>add the HTTP endpoint</strong> so you can access your app.  Endpoints are public ports that are opened on your server so they are accessible via the internet to everyone. For most websites and web apps you'll want to open HTTP (port 80) and HTTPS (port 443). Click the <code>OK</code> icon in the bottom right to create your server.</p>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2013/11/create-vm-http-endpoint-620.png" /></p>
 <h3 id="once-your-server-is-ready">Once your server is ready</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 5 minutes</p>
 <p>It'll take about 4-5 minutes or so to create your server. Once it's ready open <code>Terminal</code> and connect to your server by running</p>
 <script src="https://gist.github.com/m-gagne/b0066b6a91db4068e1c0.js"></script>
 
-<p>Be sure to replace
-<em> <code>&lt;azureuser&gt;</code> with your username that you specified during creation (default is azureuser)
-</em> <code>&lt;vmname&gt;</code> with the  virtual machine name (or DNS name) provider during creation.</p>
-<blockquote>
+<p>Replacing</p>
+<ul>
+<li><code>&lt;azureuser&gt;</code> with your username that you specified during creation (default is azureuser)</li>
+<li><code>&lt;vmname&gt;</code> with the  virtual machine name (or DNS name) provider during creation.</li>
+</ul>
 <p>When promoted be sure to agree to add your server to the known hosts.</p>
-</blockquote>
 <p><img alt="" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/ssh_to_vm.png" /></p>
-<h3 id="install-git-ruby-wzxhzdk23-nginx">Install Git, Ruby &amp; Nginx</h3>
+<h3 id="install-git-ruby-wzxhzdk-23-nginx">Install Git, Ruby &amp; Nginx</h3>
 <p><img alt="Time" src="http://mediafiles.w00t.ms/Images/Articles/uploads/2014/03/azure-ror-tutorial/clock_28.png" /> 12 minutes</p>
 <p>Once connected to your server install <a href="http://git-scm.com/">git</a> and clone the following file into <code>~/setup</code> and run the setup script. This script (<a href="https://gist.github.com/m-gagne/9234940">which you can see here</a>)  will</p>
 <ul>
@@ -240,7 +247,7 @@ body{font-size:16px;}
 <p>Open <code>Terminal</code> on your local machine &amp;  clone the sample into your code directory (for example <code>~/Code</code>)</p>
 <script src="https://gist.github.com/m-gagne/f2c49bdb873985e94cfd.js"></script>
 
-<h4 id="databaseyml">database.yml</h4>
+<h4 id="database-yml">database.yml</h4>
 <p>The sample app ships with an example database config file <code>database.example.yml</code>. Copy it to <code>database.yml</code> and configure it as needed. The sample uses PostgreSQL but you can use Mysql, SQLlite and more.</p>
 <blockquote>
 <p>Don't forget to <code>cd</code> into the app folder <code>cd ror-azure-demo</code></p>
@@ -278,7 +285,7 @@ body{font-size:16px;}
 <blockquote>
 <p>The sample app also includes a number of configuration files to instruct Capistrano to setup nginx, unicorn and more. To better understand how that works see the files in <code>config/deploy/shared</code> and read this <a href="http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/">tutorial</a>.</p>
 </blockquote>
-<h4 id="configdeployrb">config/deploy.rb</h4>
+<h4 id="config-deploy-rb">config/deploy.rb</h4>
 <p>This is the basis for your deployment configuration in Capistrano. The settings to change in this file are:</p>
 <ul>
 <li><code>:application</code><ul>
@@ -298,7 +305,7 @@ body{font-size:16px;}
 </ul>
 <script src="https://gist.github.com/m-gagne/2ef3fd15492164e1a0ab.js"></script>
 
-<h4 id="configdeployproductionrb">config/deploy/production.rb</h4>
+<h4 id="config-deploy-production-rb">config/deploy/production.rb</h4>
 <p>Capistrano allows you to create multiple stages (dev, test, production for example). In this tutorial we'll focus on production.</p>
 <p>The idea is the <code>config/deploy.rb</code> we configured above contains the common configuration (independent of the stage) and the stage specific files contain the rest.</p>
 <p>In <code>config/deploy/production.rb</code> the main line to edit is</p>
