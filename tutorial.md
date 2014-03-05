@@ -339,6 +339,10 @@ If all went well you should now be able to point your browser to your server and
 
 ### Learn More
 
+#### Startups
+Did you know you can get free Windows Azure credits just for being a [BizSpark](http://aka.ms/bizsparkcanada) startup (a free program from Microsoft). As a BizSpark startup you get $150 a month in Windows Azure hosting credits for three years, there's even an opportunity to be nominated for $60,000 in Windows Azure credits if your startup needs that kind of scale. [Find out more here](http://aka.ms/bizsparkcanada).
+
+#### Windows Azure
 Want to learn more? Hit up [windowsazure.com](http://windowsazure.com) for scenarios, documentation and tutorials, also why not check out [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/product-training/windows-azure) which includes free courses for Windows Azure.
 
 Follow me [@marc_gagne](http://twitter.com/marc_gagne) to learn more about Windows Azure, startups  and more.
